@@ -1,43 +1,46 @@
-class Program 
+using System;
+
+namespace MyApplication
 {
-  static void Main(string[] args) 
+  class Animal  // Base class (parent) 
   {
-    Animal myAnimal = new Animal();  // Create a Animal object
-    Animal myPig = new Pig();  // Create a Pig object
-    Animal myDog = new Dog();  // Create a Dog object
-
-    myAnimal.animalSound();
-    myPig.animalSound();
-    myDog.animalSound2();
+    public virtual void animalSound()
+    {
+      Console.WriteLine("The animal makes a sound");
+    }
+    public virtual void animalSound2()
+    {
+      Console.WriteLine("The animal makes a sound");
+    }
   }
-}
 
-
- class Animal  // Base class (parent) 
-{
-  
-  public virtual void animalSound() 
+  class Pig : Animal  // Derived class (child) 
   {
-    Console.WriteLine("The animal makes a sound");
+    public override void animalSound()
+    {
+      Console.WriteLine("The pig says: wee wee");
+    }
   }
- public virtual void animalSound2() 
-  {
-    Console.WriteLine("Suoro Asu");
-  }
-}
 
-class Pig : Animal  // Derived class (child) 
-{
-  public override void animalSound() 
+  class Dog : Animal  // Derived class (child) 
   {
-    Console.WriteLine("The pig says: wee wee");
+    public override void animalSound2()
+    {
+      Console.WriteLine("The dog says: bow wow");
+    }
   }
-}
 
-class Dog : Animal  // Derived class (child) 
-{
-  public override  void animalSound2() 
+  class Program
   {
-    Console.WriteLine("The dog says: bow wow");
+    static void Main(string[] args)
+    {
+      Animal myAnimal = new Animal();  // Create a Animal object
+      Animal myPig = new Pig();  // Create a Pig object
+      Animal myDog = new Dog();  // Create a Dog object
+      
+      myAnimal.animalSound();
+      myPig.animalSound();
+      myDog.animalSound2();
+    }
   }
 }
